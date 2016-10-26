@@ -1,10 +1,10 @@
 {
   "name": "redux-boot-services",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dependency injection of statefull Services for Redux Boot.",
   "main": "dis/index.js",
   "scripts": {
-    "postinstall": "npm info \"$PKG\" peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install \"$PKG\"",
+    "install:peers": "npm info \"$PKG\" peerDependencies --json | command sed 's/[\\{\\},]//g ; s/: /@/g' | xargs npm install \"$PKG\"",
     "build": "npm run build:commonjs",
     "build:commonjs": "babel src --out-dir dist --ignore __tests__/*",
     "test": "tape -r babel-register src/**/__tests__/**/*.js | tap-diff",
