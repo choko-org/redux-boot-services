@@ -7,7 +7,7 @@ const servicesModule = {
   middleware: ({ getState, dispatch }) => {
     const container = createContainer()
 
-    return next => action => {
+    return next => async action => {
       if (action.type === BOOT) {
         dispatch({
           type: CONTAINER_INIT,
@@ -23,7 +23,7 @@ const servicesModule = {
           getService,
         }
 
-        return next(action(servicesApi))
+        return next(await action(servicesApi))
       }
 
       return next(action)
